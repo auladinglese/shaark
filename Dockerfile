@@ -4,7 +4,7 @@ MAINTAINER Shaark contributors <https://github.com/MarceauKa/shaark>
 WORKDIR /app
 COPY . /app
 
-RUN apk add --no-cache --update openssl zip unzip oniguruma-dev zlib-dev libpng-dev libzip-dev postgresql-dev && \
+RUN apk add --no-cache --update openssl git zip unzip oniguruma-dev zlib-dev libpng-dev libzip-dev postgresql-dev && \
         curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer && \
         docker-php-ext-install pdo mbstring gd exif zip sockets pdo_mysql pgsql pdo_pgsql && \
         cp .env.example .env && \
