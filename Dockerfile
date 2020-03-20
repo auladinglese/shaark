@@ -25,7 +25,9 @@ RUN apk add --no-cache --update openssl zip unzip oniguruma-dev zlib-dev libpng-
         php artisan key:generate && \
         php artisan storage:link && \
         php artisan config:cache && \
-        php artisan migrate --seed -n --force
-
+      
+RUN apk add --update --no-cache gmp gmp-dev \
+        && docker-php-ext-install gmp bcmath
+    
 ENTRYPOINT ["/app/run.sh"]
 EXPOSE 80
