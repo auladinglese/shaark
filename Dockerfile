@@ -27,5 +27,5 @@ RUN apk add --no-cache --update openssl zip unzip oniguruma-dev zlib-dev libpng-
         php artisan config:cache && \
         php artisan migrate --seed -n --force
 
-CMD php artisan serve --host=0.0.0.0 --port=80
+ENTRYPOINT ["/app/run.sh"]
 EXPOSE 80
